@@ -8,7 +8,7 @@ const Navbar = () => {
 
     return (
         <>
-            <main className="w-[90%] bg-[#1C3144] mx-auto p-6 rounded-b">
+            <main className="w-full bg-[#1C3144] mx-auto p-6 rounded-b">
                 <div className="flex justify-between">
                     <section className="w-[30%] flex bg-transparent border-white border-[0.1px] rounded">
                         <input className="px-4 py-2 w-full font-roboto rounded outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />
