@@ -2,7 +2,8 @@ import React, { useContext, useReducer } from "react";
 import uiReducer from "../reducer/ui_reducer";
 
 const initialState = {
-    searchValue: ''
+    searchValue: '',
+    openSidebar: false
 }
 
 const UiContext = React.createContext()
@@ -14,10 +15,15 @@ export const UiProvider = ({children}) => {
         dispatch({type: 'SET_SEARCH', payload: value})
     }
 
+    const handleSidebar = (status) => {
+        dispatch({type: 'SET_SIDEBAR', payload: status})
+    }
+
     return (
         <UiContext.Provider value={{
             ...state,
-            handleSearchValue
+            handleSearchValue,
+            handleSidebar
         }}>
             {children}
         </UiContext.Provider>

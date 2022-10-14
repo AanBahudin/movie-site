@@ -1,10 +1,10 @@
 import {AiOutlineClose, AiOutlineSearch} from 'react-icons/ai'
 import { useUiContext } from '../context/ui_context'
-import { navData } from '../utils/helper'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Navbar = () => {
 
-    const {searchValue, handleSearchValue} = useUiContext()
+    const {handleSidebar, openSidebar, searchValue, handleSearchValue} = useUiContext()
 
     return (
         <>
@@ -16,11 +16,8 @@ const Navbar = () => {
                         <span className='my-auto px-3 border-l-[0.2px]'> <AiOutlineSearch /> </span>
                     </section>
 
-                    <section className="flex gap-x-5 my-auto font-roboto text-md font-semibold">
-                        {navData.map((item, id) => {
-                            return <h2 key={id} className="cursor-pointer hover:text-slate-400 duration-150">{item.title}</h2>
-                        })}
-                    </section>
+                    <GiHamburgerMenu onClick={() => handleSidebar(!openSidebar)} size={30} className='my-auto' />
+
                 </div>
             </main>
         </>
