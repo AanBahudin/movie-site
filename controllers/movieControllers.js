@@ -19,7 +19,17 @@ const getTrendingMovie = async(req, res) => {
         const response = await axios.get(`${baseURL}/trending/${type}/week?api_key=${process.env.API_KEY}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
-        console.log(error);
+        console.log(error.data);
+    }
+}
+
+const getTopRated = async(req, res) => {
+    const {type} = req.params
+    try {
+        const response = await axios.get(`${baseURL}/${type}/top_rated?api_key=${process.env.API_KEY}`)
+        res.status(StatusCodes.OK).json(response.data)
+    } catch (error) {
+        console.log(error.message)
     }
 }
 
@@ -35,5 +45,6 @@ module.exports = {
     getAllMovies,
     getSingleMovies,
     searchMovies,
-    getTrendingMovie
+    getTrendingMovie,
+    getTopRated
 }
