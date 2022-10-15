@@ -1,15 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { getAllMovies, getSingleMovies, searchMovies, getTrendingMovie, getTopRated } = require('../controllers/movieControllers')
+const { getSingleMovies, searchMovies, getFeature } = require('../controllers/movieControllers')
 
-router.route('/')
-    .get(getAllMovies)
-
-router.route('/trending/:type')
-    .get(getTrendingMovie)
-
-router.route('/top_rated/:type')
-    .get(getTopRated)
+router.route('/featured/:type/:feature')
+    .get(getFeature)
 
 router.route('/:id')
     .get(getSingleMovies)
