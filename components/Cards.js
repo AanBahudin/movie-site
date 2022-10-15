@@ -1,15 +1,20 @@
 import Card from "./Card"
 import Link from 'next/link'
+import Loading from "./Loading"
 
 const Cards = ({data = [], path}) => {
+
+    if(typeof data === 'undefined') {
+        return <Loading />
+    }
+
     return (
         <main className="py-4">
             <section className="flex flex-wrap justify-around">
-                {typeof data === 'undefined' ? '-' : (
-                    data.results.slice(0,12).map((item, id) => {
-                        return <Card key={id} {...item} />
-                    })
-                )}
+                {data.results.slice(0,12).map((item, id) => {
+                    return <Card key={id} {...item} />
+                })
+                }
             </section>
 
             <Link href={`/category/${path}`}>

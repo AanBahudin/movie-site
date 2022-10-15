@@ -9,7 +9,7 @@ export const getServerSideProps = async() => {
   const baseURL = 'http://localhost:3001/api/v1/movies'
 
   const trendingMovie = await axios.get(`${baseURL}/featured/movie/trending`)
-  const trendingTv = await axios.get(`${baseURL}/featured/tv/trending`)
+  const trendingTv = await axios.get(`${baseURL}/featured/tv/popular`)
   return {
     props: {
       trendingMovie: trendingMovie.data,
@@ -32,10 +32,9 @@ export default function Home({trendingMovie, trendingTv}) {
         <Head>
           <title>Movie API - Search Every Movie & TV Shows</title>
         </Head>
-    
-        <section className='w-[50%] font-roboto text-slate-500 text-xl flex justify-around uppercase items-center mx-auto pt-[10%]'>
-          <Link className='hover:text-slate-300 duration-200' href={`/media/movie`}> Movies </Link>
-          <Link className='hover:text-slate-300 duration-200' href={`/media/tv`}> TV Shows </Link>
+
+        <section className='flex font-roboto uppercase text-xl w-[50%] pt-[10%] mx-auto justify-around items-center'>
+          <Link href='/media/tv'><a>Tv Show</a></Link> <Link href='/media/movie'><a>Movies</a></Link>
         </section>
 
         <>
