@@ -17,7 +17,7 @@ const Cards = ({data = [], path}) => {
                 }
             </section>
 
-            <Link href={`/category/${path}`}>
+            <Link href={path}>
                 <h1 className="text-center font-roboto text-md hover:text-slate-500 duration-150 cursor-pointer pt-10 ">See More ...</h1>
             </Link>
         </main>

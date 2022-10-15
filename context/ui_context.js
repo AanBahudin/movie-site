@@ -3,7 +3,11 @@ import uiReducer from "../reducer/ui_reducer";
 
 const initialState = {
     searchValue: '',
-    openSidebar: false
+    openSidebar: false,
+    sidebarMenuStatus: {
+        id: 0,
+        isCollapse: false
+    }
 }
 
 const UiContext = React.createContext()
@@ -15,6 +19,10 @@ export const UiProvider = ({children}) => {
         dispatch({type: 'SET_SEARCH', payload: value})
     }
 
+    const handleSidebarMenuStatus = (id, status) => {
+        dispatch({type: 'SIDEBAR_COLLAPSE', payload: {id, status}})
+    }
+
     const handleSidebar = (status) => {
         dispatch({type: 'SET_SIDEBAR', payload: status})
     }
@@ -23,7 +31,8 @@ export const UiProvider = ({children}) => {
         <UiContext.Provider value={{
             ...state,
             handleSearchValue,
-            handleSidebar
+            handleSidebar,
+            handleSidebarMenuStatus
         }}>
             {children}
         </UiContext.Provider>

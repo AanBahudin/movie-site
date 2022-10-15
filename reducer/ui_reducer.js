@@ -3,6 +3,9 @@ const uiReducer = (state, action) => {
         return {...state, searchValue: action.payload}
     } if(action.type === 'SET_SIDEBAR') {
         return {...state, openSidebar: action.payload}
+    } if(action.type === 'SIDEBAR_COLLAPSE') {
+        const {id, status} = action.payload
+        return {...state, sidebarMenuStatus: {id, isCollapse: status}}
     }
 }
 

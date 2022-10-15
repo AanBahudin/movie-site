@@ -1,6 +1,6 @@
-import {Navbar, Sidebar, HomeCardContainer} from '../../components'
-import {featuredTvCardContainerData} from '../../utils/helper'
-import { useUiContext } from '../../context/ui_context'
+import {Navbar, Sidebar, HomeCardContainer} from '../../../components'
+import {featuredTvCardContainerData} from '../../../utils/helper'
+import { useUiContext } from '../../../context/ui_context'
 import axios from 'axios'
 
 export const getServerSideProps = async() => {
