@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const { getSingleMovies, searchMovies, getFeature } = require('../controllers/movieControllers')
+const { getSingleMovies, searchMovies, getFeatureMovie, getFeatureTv } = require('../controllers/movieControllers')
 
-router.route('/featured/:type/:feature')
-    .get(getFeature)
+router.route('/featured/movie/:feature')
+    .get(getFeatureMovie)
+
+router.route('/featured/tv/:feature')
+    .get(getFeatureTv)
 
 router.route('/:id')
     .get(getSingleMovies)

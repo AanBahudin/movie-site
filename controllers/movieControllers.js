@@ -3,21 +3,35 @@ const axios = require('axios')
 
 const baseURL = `https://api.themoviedb.org/3`
 
-
-const getFeature = async(req, res) => {
-    const {type, feature} = req.params
-    // console.log(type, feature);
-    // console.log(`${baseURL}/${url}api_key=${process.env.API_KEY}`);
-        // const test = feature === 'trending' ? `${feature}/${type}/week?` : `${type}/${feature}?`
-        // console.log(test);
-    
+const getFeatureMovie = async(req, res) => {
+    const {feature} = req.params
     try {
-        const url = feature === 'trending' ? `${feature}/${type}/week?` : `${type}/${feature}?`
+        const url = feature === 'trending' ? `${feature}/movie/week?` : `movie/${feature}?`
         const response = await axios.get(`${baseURL}/${url}api_key=${process.env.API_KEY}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
-        console.log(error.data);
+        console.log(error);
     }
+}
+
+const getFeatureTv = async(req, res) => {
+    const {feature} = req.params
+    console.log(feature);
+
+    try {
+        const response = await axios.get(`https://api.themoviedb.org/3/tv/${feature}?api_key=${process.env.API_KEY}`)
+        res.status(StatusCodes.OK).json(response.data)
+    } catch (error) {
+        console.log(error);
+    }
+
+    // try {
+    //     const url = feature === 'trending' ? `${feature}/tv/week?` : `tv/${feature}?`
+    //     const response = await axios.get(`${baseURL}/${url}api_key=${process.env.API_KEY}`)
+    //     res.status(StatusCodes.OK).json(response.data)
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }
 
 const getSingleMovies = async(req, res) => {
@@ -31,5 +45,6 @@ const searchMovies = async(req, res) => {
 module.exports = {
     getSingleMovies,
     searchMovies,
-    getFeature,
+    getFeatureMovie,
+    getFeatureTv
 }
