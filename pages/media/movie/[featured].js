@@ -29,7 +29,7 @@ const MovieFeatured = ({data}) => {
             <Navbar />
             
             <section className='py-[10%]'>
-                <TvMovieCards data={data} />
+                <TvMovieCards data={data} urlPath="movie" />
             </section>
         </main>
     )

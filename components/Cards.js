@@ -2,7 +2,7 @@ import Card from "./Card"
 import Link from 'next/link'
 import Loading from "./Loading"
 
-const Cards = ({data = [], path}) => {
+const Cards = ({data = [], path, urlPath}) => {
 
     if(typeof data === 'undefined') {
         return <Loading />
@@ -12,7 +12,7 @@ const Cards = ({data = [], path}) => {
         <main className="py-4">
             <section className="flex flex-wrap justify-around">
                 {data.results.slice(0,12).map((item, id) => {
-                    return <Card key={id} {...item} />
+                    return <Card key={id} {...item} urlPath={urlPath} />
                 })
                 }
             </section>

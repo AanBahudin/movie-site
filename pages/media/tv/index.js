@@ -32,7 +32,7 @@ const MediaTv = ({topRated, onTheAir, popular, airingToday}) => {
             <Navbar />
             <>
                 {featuredTvCardContainerData.map((item, id_number) => {
-                return <HomeCardContainer key={id_number} path={item.tv_path} title={item.tv_title} result={fetchResult[id_number]} id_name={item.id_name_tv}/>
+                return <HomeCardContainer key={id_number} path={item.tv_path} title={item.tv_title} result={fetchResult[id_number]} id_name={item.id_name} urlPath='tv' />
                 })}
             </>
         </main>

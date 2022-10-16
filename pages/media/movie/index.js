@@ -34,7 +34,7 @@ const MediaMovie = ({trending, topRated, upComing, popular, nowPlaying}) => {
             <Navbar />
             <>
                 {featuredMovieCardContainerData.map((item, id_number) => {
-                return <HomeCardContainer key={id_number} path={item.movie_path} title={item.movie_title} result={fetchResult[id_number]} id_name={item.id_name_movie}/>
+                return <HomeCardContainer key={id_number} path={item.movie_path} title={item.movie_title} result={fetchResult[id_number]} id_name={item.id_name_movie} urlPath='movie' />
                 })}
             </>
         </main>

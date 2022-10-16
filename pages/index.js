@@ -23,6 +23,7 @@ export default function Home({trendingMovie, trendingTv}) {
   const {openSidebar} = useUiContext()
 
   const results = [trendingMovie, trendingTv]
+  const searchPath = ['movie', 'tv']
 
   return (
       <main className=''>
@@ -39,7 +40,7 @@ export default function Home({trendingMovie, trendingTv}) {
 
         <>
           {HomeCardContainerData.map((item, item_id) => {
-              return <HomeCardContainer key={item_id} path={item.path} id_name={item.id_name} title={item.title} result={results[item_id]} />
+              return <HomeCardContainer key={item_id} path={item.path} id_name={item.id_name} title={item.title} result={results[item_id]} urlPath={searchPath[item_id]}  />
           })}
         </>
 

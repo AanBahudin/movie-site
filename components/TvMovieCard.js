@@ -1,9 +1,9 @@
 import Link from "next/link"
 
 
-const TvMovieCard = ({title, name, poster_path, id, vote_average}) => {
+const TvMovieCard = ({title, name, poster_path, id, vote_average, urlPath}) => {
     return (
-        <Link href={`/movie/${id}`}>
+        <Link href={`/single/${urlPath}/${id}`}>
             <main className="flex flex-col p-5 group relative w-56">
                 {/* <div className="absolute hover:absolute z-20 bg-black/20 h-full w-full"></div> */}
                 <img className="w-full rounded mx-auto" src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
