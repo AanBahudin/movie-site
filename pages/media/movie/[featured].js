@@ -1,6 +1,6 @@
 import {Navbar, Sidebar} from '../../../components'
 import { useUiContext } from '../../../context/ui_context';
-import {Cards} from '../../../components'
+import {TvMovieCards} from '../../../components'
 import axios from 'axios'
 
 
@@ -17,7 +17,6 @@ export const getServerSideProps = async({params}) => {
 }
 
 const MovieFeatured = ({data}) => {
-    console.log(data);
 
     if(typeof data === 'undefined') {
         return <h1>Loading ....</h1>
@@ -29,11 +28,9 @@ const MovieFeatured = ({data}) => {
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
             
-            {/* <section className='py-[10%]'>
-                {data.map((item, index) => {
-                    return <Cards {...item} key={index} />
-                })}
-            </section> */}
+            <section className='py-[10%]'>
+                <TvMovieCards data={data} />
+            </section>
         </main>
     )
 }

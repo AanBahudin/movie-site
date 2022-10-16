@@ -5,10 +5,8 @@ import Sidebar from './Sidebar'
 import Footer from './Footer'
 import HomeCardContainer from './Home/HomeCardContainer'
 import Loading from './Loading'
-
-// Display Card
-import {MovieCard, MovieCards} from './displayCard/movie'
-import {TvCard, TvCards} from './displayCard/tv'
+import TvMovieCards from './TvMovieCards'
+import TvMovieCard from './TvMovieCard'
 
 export {
     Navbar,
@@ -18,8 +16,6 @@ export {
     Cards,
     HomeCardContainer,
     Footer,
-    MovieCard,
-    MovieCards,
-    TvCards,
-    TvCard
+    TvMovieCard,
+    TvMovieCards
 }
