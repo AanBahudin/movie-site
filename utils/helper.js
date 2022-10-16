@@ -30,7 +30,7 @@ export const sidebarTvDataMenu = [
     },
     {
         title: 'Airing Today',
-        path: '/mediatv/airing_today'
+        path: '/media/tv/airing_today'
     },
 ]
 
