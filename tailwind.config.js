@@ -8,6 +8,12 @@ module.exports = {
     extend: {
       fontFamily: {
         'roboto': ['Roboto Mono', 'monospace']
+      },
+      colors: {
+        'gunmetal': '#333745',
+        'crayola': '#FE5F55',
+        'cultured': '#F4F4F5',
+        'silver': '#9EA1A9'
       }
     },
   },

@@ -9,13 +9,13 @@ const Navbar = () => {
 
     return (
         <>
-            <main className="w-full bg-[#1C3144] mx-auto p-6 rounded-b">
-                <div className="flex items-center justify-around">
+            <main className="w-full bg-crayola mx-auto p-6 rounded-b">
+                <div className="flex items-center text-cultured justify-around">
 
                     <Link href='/'><h1 className='text-3xl font-roboto font-semibold'>Movie API</h1></Link>
 
                     <section className="w-[30%] flex bg-transparent border-white border-[0.1px] rounded">
-                        <input className="px-4 py-2 w-full font-roboto rounded outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />
+                        <input className="px-4 py-2 w-full font-roboto rounded placeholder:text-white outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />
                         <span onClick={() => handleSearchValue("")} className='my-auto px-3'><AiOutlineClose /></span>
                         <span className='my-auto px-3 border-l-[0.2px]'> <AiOutlineSearch /> </span>
                     </section>

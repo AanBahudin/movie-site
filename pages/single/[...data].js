@@ -16,14 +16,35 @@ export const getServerSideProps = async({params}) => {
 
 const SingleById = ({singleData}) => {
 
+    const {poster_path, backdrop_path, title, original_name, tagline, overview, genres} = singleData
+
     const {openSidebar} = useUiContext()
-    console.log(singleData);
     return (
-        <main>
+        <>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
-            Single movie / tv shows page
-        </main>
+            <main className='py-[7%] w-[90%] mx-auto'>
+
+                <img className='w-9/12 mx-auto rounded' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} />
+
+                <section className='grid grid-cols-2 py-[7%]'>
+                    <div className='flex justify-center items-center flex-col font-roboto'>
+                        <img className='w-72 pb-10' src={`https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}`} />
+                        <h1 className='text-2xl text-cultured'>{title || original_name}</h1>
+                        <p className='italic text-center text-silver'>" {tagline || '-'} "</p>
+                    </div>
+
+                    <div className='flex justify-center items-center flex-col font-roboto'>
+                        <h4 className='text-center text-cultured'>{overview}</h4>
+                        <article className='flex w-10/12 mx-auto py-[7%] justify-evenly items-center'>
+                            {genres.map(item => {
+                                return <h1 className='uppercase text-silver cursor-default' key={item.id}>{item.name}</h1>
+                            })}
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </>
     )
 }
 
