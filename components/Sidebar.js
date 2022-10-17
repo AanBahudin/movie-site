@@ -10,8 +10,7 @@ const Sidebar = () => {
     const {id, isCollapse} = sidebarMenuStatus
     return (
         <main className="bg-[#1B1E22] w-[20%] h-full fixed p-5 right-0 z-20">
-            <section className='flex items-center justify-between py-[4%] px-2'>
-                <h1 className='text-2xl font-semibold font-roboto'>Category</h1>
+            <section className='flex items-center justify-end py-[4%] px-2'>
                 <MdClose onClick={() => handleSidebar(false)} size={30} className='my-auto' />
             </section>
 
