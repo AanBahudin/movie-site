@@ -8,7 +8,7 @@ export const getServerSideProps = async({params}) => {
     const responses = await axios.get(`${baseURL}/${data[0]}/${data[1]}`)
     return {
         props: {
-            params: data[1],
+            params: data[0],
             singleData: responses.data
         }
     }

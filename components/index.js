@@ -12,6 +12,8 @@ import TvMovieCard from './TvMovieCard'
 import Belongs_To_Collection from './TvMovieComponent/Belongs_To_Collection'
 import SingleMovie from './TvMovieComponent/SingleMovie'
 import SingleTv from './TvMovieComponent/SingleTv'
+import Details from './TvMovieComponent/Details'
+import Production_Company from './TvMovieComponent/Production_Company'
 
 export {
     Navbar,
@@ -22,6 +24,8 @@ export {
     HomeCardContainer,
     SingleMovie,
     SingleTv,
+    Production_Company,
+    Details,
     Belongs_To_Collection,
     Footer,
     TvMovieCard,
