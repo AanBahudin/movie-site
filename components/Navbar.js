@@ -12,7 +12,7 @@ const Navbar = () => {
             <main className="w-full bg-crayola mx-auto p-6 rounded-b">
                 <div className="flex items-center text-cultured justify-around">
 
-                    <Link href='/'><h1 className='text-3xl font-roboto font-semibold'>Movie API</h1></Link>
+                    <Link href='/'><h1 className='text-3xl font-roboto cursor-default font-semibold'>Movie API</h1></Link>
 
                     <section className="w-[30%] flex bg-transparent border-white border-[0.1px] rounded">
                         <input className="px-4 py-2 w-full font-roboto rounded placeholder:text-white outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />

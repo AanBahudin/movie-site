@@ -18,7 +18,7 @@ const Cards = ({data = [], path, urlPath, page}) => {
                 }
             </section>
 
-            <Link href={`/media/${path}`}>
+            <Link href={`/media/${path}/${page}`}>
                 <h1 className="text-center font-roboto text-md hover:text-slate-500 duration-150 cursor-pointer pt-10 ">See More ...</h1>
             </Link>
         </main>
