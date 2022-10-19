@@ -6,10 +6,10 @@ import axios from 'axios'
 export const getServerSideProps = async() => {
     const baseURL = 'http://localhost:3001/api/v1/movies'
 
-    const topRated = await axios.get(`${baseURL}/featured/tv/top_rated`)
-    const onTheAir = await axios.get(`${baseURL}/featured/tv/on_the_air`)
-    const popular = await axios.get(`${baseURL}/featured/tv/popular`)
-    const airingToday = await axios.get(`${baseURL}/featured/tv/airing_today`)
+    const topRated = await axios.get(`${baseURL}/featured/tv/top_rated/1`)
+    const onTheAir = await axios.get(`${baseURL}/featured/tv/on_the_air/1`)
+    const popular = await axios.get(`${baseURL}/featured/tv/popular/1`)
+    const airingToday = await axios.get(`${baseURL}/featured/tv/airing_today/1`)
 
     return {
         props: {
@@ -32,7 +32,7 @@ const MediaTv = ({topRated, onTheAir, popular, airingToday}) => {
             <Navbar />
             <>
                 {featuredTvCardContainerData.map((item, id_number) => {
-                return <HomeCardContainer key={id_number} path={item.tv_path} title={item.tv_title} result={fetchResult[id_number]} id_name={item.id_name} urlPath='tv' />
+                return <HomeCardContainer key={id_number} path={item.tv_path} title={item.tv_title} result={fetchResult[id_number]} id_name={item.id_name} urlPath='tv' page={1} />
                 })}
             </>
         </main>

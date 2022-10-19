@@ -6,11 +6,11 @@ import axios from 'axios'
 export const getServerSideProps = async() => {
     const baseURL = 'http://localhost:3001/api/v1/movies'
 
-    const trending = await axios.get(`${baseURL}/featured/movie/trending`)
-    const topRated = await axios.get(`${baseURL}/featured/movie/top_rated`)
-    const upcComing = await axios.get(`${baseURL}/featured/movie/upcoming`)
-    const popular = await axios.get(`${baseURL}/featured/movie/popular`)
-    const nowPlaying = await axios.get(`${baseURL}/featured/movie/now_playing`)
+    const trending = await axios.get(`${baseURL}/featured/movie/trending/1`)
+    const topRated = await axios.get(`${baseURL}/featured/movie/top_rated/1`)
+    const upcComing = await axios.get(`${baseURL}/featured/movie/upcoming/1`)
+    const popular = await axios.get(`${baseURL}/featured/movie/popular/1`)
+    const nowPlaying = await axios.get(`${baseURL}/featured/movie/now_playing/1`)
 
     return {
         props: {
@@ -34,7 +34,7 @@ const MediaMovie = ({trending, topRated, upComing, popular, nowPlaying}) => {
             <Navbar />
             <>
                 {featuredMovieCardContainerData.map((item, id_number) => {
-                return <HomeCardContainer key={id_number} path={item.movie_path} title={item.movie_title} result={fetchResult[id_number]} id_name={item.id_name_movie} urlPath='movie' />
+                return <HomeCardContainer key={id_number} path={item.movie_path} title={item.movie_title} result={fetchResult[id_number]} id_name={item.id_name_movie} urlPath='movie' page={1} />
                 })}
             </>
         </main>
