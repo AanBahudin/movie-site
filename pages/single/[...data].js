@@ -16,6 +16,8 @@ export const getServerSideProps = async({params}) => {
 
 
 const SingleById = ({params, singleData}) => {
+
+
     const {openSidebar} = useUiContext()
     return (
         <>

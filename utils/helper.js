@@ -18,42 +18,42 @@ export const featuredTvCardContainerData = [{id_name:'top-rated-tv',tv_path:'tv/
 export const sidebarTvDataMenu = [
     {
         title: 'Top Rated',
-        path: '/media/tv/top_rated'
+        path: '/media/tv/top_rated/1'
     },
     {
         title: 'On The Air',
-        path: '/media/tv/on_the_air'
+        path: '/media/tv/on_the_air/1'
     },
     {
         title: 'Popular',
-        path: '/media/tv/popular'
+        path: '/media/tv/popular/1'
     },
     {
         title: 'Airing Today',
-        path: '/media/tv/airing_today'
+        path: '/media/tv/airing_today/1'
     },
 ]
 
 export const sidebarMoviesDataMenu = [
     {
         title: 'Trending',
-        path: '/media/movie/trending'
+        path: '/media/movie/trending/1'
     },
     {
         title: 'Top Rated',
-        path: '/media/movie/top_rated'
+        path: '/media/movie/top_rated/1'
     },
     {
         title: 'Popular',
-        path: '/media/movie/popular'
+        path: '/media/movie/popular/1'
     },
     {
         title: 'Upcoming',
-        path: '/media/movie/upcoming'
+        path: '/media/movie/upcoming/1'
     },
     {
         title: 'Now Playing',
-        path: '/media/movie/now_playing'
+        path: '/media/movie/now_playing/1'
     },
 
 ]

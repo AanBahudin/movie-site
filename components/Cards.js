@@ -2,7 +2,8 @@ import Card from "./Card"
 import Link from 'next/link'
 import Loading from "./Loading"
 
-const Cards = ({data = [], path, urlPath}) => {
+const Cards = ({data = [], path, urlPath, page}) => {
+    console.log(path);
 
     if(typeof data === 'undefined') {
         return <Loading />
@@ -17,7 +18,7 @@ const Cards = ({data = [], path, urlPath}) => {
                 }
             </section>
 
-            <Link href={path}>
+            <Link href={`/media/${path}`}>
                 <h1 className="text-center font-roboto text-md hover:text-slate-500 duration-150 cursor-pointer pt-10 ">See More ...</h1>
             </Link>
         </main>
