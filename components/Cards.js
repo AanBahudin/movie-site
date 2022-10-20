@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Loading from "./Loading"
 
 const Cards = ({data = [], path, urlPath, page}) => {
-    console.log(path);
 
     if(typeof data === 'undefined') {
         return <Loading />

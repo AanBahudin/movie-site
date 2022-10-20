@@ -8,6 +8,9 @@ import Loading from './Loading'
 import TvMovieCards from './TvMovieCards'
 import TvMovieCard from './TvMovieCard'
 
+import SearchCard from './SearchCard'
+import SearchCards from './SearchCards'
+
 // single tv/movie component
 import Belongs_To_Collection from './TvMovieComponent/Belongs_To_Collection'
 import SingleMovie from './TvMovieComponent/SingleMovie'
@@ -24,6 +27,8 @@ export {
     HomeCardContainer,
     SingleMovie,
     SingleTv,
+    SearchCard,
+    SearchCards,
     Production_Company,
     Details,
     Belongs_To_Collection,
