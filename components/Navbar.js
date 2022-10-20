@@ -22,7 +22,7 @@ const Navbar = () => {
                             {e.key === 'Enter' ? findData() : null}
                         }} className="px-4 py-2 w-full font-roboto rounded placeholder:text-white outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />
                         <span onClick={() => handleSearchValue("")} className='my-auto px-3'><AiOutlineClose /></span>
-                        <span className='my-auto px-3 border-l-[0.2px]'> <AiOutlineSearch /> </span>
+                        <span className='my-auto px-3 border-l-[0.2px]'> <AiOutlineSearch onClick={() => findData()} /> </span>
                     </section>
 
                     <GiHamburgerMenu onClick={() => handleSidebar(!openSidebar)} size={30} className='my-auto' />

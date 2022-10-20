@@ -13,10 +13,11 @@ const MovieContext = React.createContext()
 export const MovieProvider = ({children}) => {
     const [state, dispatch] = useReducer(movieReducer, initalState)
     const router = useRouter()
-    const {searchValue} = useUiContext()
+    const {searchValue, handleSearchValue} = useUiContext()
 
     const findData = () => {
         router.push(`/search/query?title=${searchValue}&page=${1}`)
+        handleSearchValue('')
     }
 
 

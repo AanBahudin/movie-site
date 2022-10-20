@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Navbar, SearchCards, Sidebar } from '../../components'
+import { Navbar, SearchCards, Sidebar, Footer } from '../../components'
 import { useUiContext } from '../../context/ui_context'
 import Link from 'next/link'
 import { FiArrowRightCircle, FiArrowLeftCircle} from 'react-icons/fi'
@@ -19,7 +19,7 @@ export const getServerSideProps = async({query}) => {
 
 const QueryPage = ({data, currentPage, title}) => {
 
-    const {results, page, total_pages} = data
+    const {results, total_pages} = data
     console.log(total_pages);
     const {openSidebar} = useUiContext()
 
@@ -37,6 +37,8 @@ const QueryPage = ({data, currentPage, title}) => {
                 {Number(currentPage) > 1 ? <Link href={`/search/query?title=${title}&page=${prevPage}`}><FiArrowLeftCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
                 {Number(currentPage) < total_pages  ? <Link href={`/search/query?title=${title}&page=${nextPage}`}><FiArrowRightCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
             </section>
+
+            <Footer />
         </h1>
     )
 }
