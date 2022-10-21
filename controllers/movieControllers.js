@@ -38,7 +38,7 @@ const searchAll = async(req, res) => {
     const {title, page} = req.query
     console.log(title, page);
     try {
-        const response = await axios.get(`${baseURL}/search/multi?api_key=${process.env.API_KEY}&page=${page}&include_adult=true&query=${title}`)
+        const response = await axios.get(`${baseURL}/search/multi?api_key=${process.env.API_KEY}&page=${page}&include_adult=false&query=${title}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
         console.log(error);
