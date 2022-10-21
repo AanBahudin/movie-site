@@ -1,4 +1,4 @@
-import {Navbar, Sidebar, HomeCardContainer} from '../../../components'
+import {Navbar, Sidebar, HomeCardContainer, Footer} from '../../../components'
 import {featuredMovieCardContainerData} from '../../../utils/helper'
 import { useUiContext } from '../../../context/ui_context'
 import axios from 'axios'
@@ -29,14 +29,16 @@ const MediaMovie = ({trending, topRated, upComing, popular, nowPlaying}) => {
     const fetchResult = [trending, topRated, upComing, popular, nowPlaying]
 
     return (
-        <main>
+        <main className='h-fit min-h-[100vh] relative'>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
-            <>
+            <section className='pb-[15%]'>
                 {featuredMovieCardContainerData.map((item, id_number) => {
                 return <HomeCardContainer key={id_number} path={item.movie_path} title={item.movie_title} result={fetchResult[id_number]} id_name={item.id_name_movie} urlPath='movie' page={1} />
                 })}
-            </>
+            </section>
+
+            <Footer />
         </main>
     )
 }

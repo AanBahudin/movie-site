@@ -27,19 +27,19 @@ const QueryPage = ({data, currentPage, title}) => {
     const prevPage = Number(currentPage) - 1
 
     return (
-        <h1>
+        <main className='h-fit min-h-[100vh] relative'>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
             
             <SearchCards data={results} />
 
-            <section className='flex gap-x-10 w-[90%] mx-auto justify-center items-center pt-[3%] pb-[5%]'>
+            <section className='flex gap-x-10 w-[90%] mx-auto justify-center items-center pt-[3%] pb-[15%]'>
                 {Number(currentPage) > 1 ? <Link href={`/search/query?title=${title}&page=${prevPage}`}><FiArrowLeftCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
                 {Number(currentPage) < total_pages  ? <Link href={`/search/query?title=${title}&page=${nextPage}`}><FiArrowRightCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
             </section>
 
             <Footer />
-        </h1>
+        </main>
     )
 }
 

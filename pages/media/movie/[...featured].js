@@ -30,7 +30,7 @@ const MovieFeatured = ({data, currentPage, currentType}) => {
     const prevPage = String(Number(currentPage) - 1)
 
     return (
-        <main>
+        <main className='h-fit min-h-[100vh] relative'>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
             
@@ -38,7 +38,7 @@ const MovieFeatured = ({data, currentPage, currentType}) => {
                 <TvMovieCards data={data} urlPath="movie" />
             </section>
 
-            <section className='flex gap-x-10 w-[90%] mx-auto justify-center items-center pt-[3%] pb-[5%]'>
+            <section className='flex gap-x-10 w-[90%] mx-auto justify-center items-center pt-[3%] pb-[15%]'>
                 {Number(currentPage) > 1 ? <Link href={`/media/movie/${currentType}/${prevPage}`}><FiArrowLeftCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
                 <Link href={`/media/movie/${currentType}/${nextPage}`}><FiArrowRightCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link>
             </section>

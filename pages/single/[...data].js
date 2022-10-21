@@ -20,13 +20,16 @@ const SingleById = ({params, singleData}) => {
 
     const {openSidebar} = useUiContext()
     return (
-        <>
+        <main className='h-fit min-h-[100vh] relative'>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
-            {params === 'movie' ? <SingleMovie {...singleData} /> : <SingleTv {...singleData}/>}
+
+            <section className='pb-[10%]'>
+                {params === 'movie' ? <SingleMovie {...singleData} /> : <SingleTv {...singleData}/>}
+            </section>
 
             <Footer />
-        </>
+        </main>
     )
 }
 

@@ -1,4 +1,4 @@
-import {Navbar, Sidebar, HomeCardContainer} from '../../../components'
+import {Navbar, Sidebar, HomeCardContainer, Footer} from '../../../components'
 import {featuredTvCardContainerData} from '../../../utils/helper'
 import { useUiContext } from '../../../context/ui_context'
 import axios from 'axios'
@@ -27,14 +27,16 @@ const MediaTv = ({topRated, onTheAir, popular, airingToday}) => {
     const fetchResult = [topRated, onTheAir, popular, airingToday]
 
     return (
-        <main>
+        <main className='h-fit min-h-[100vh] relative'>
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
-            <>
+            <section className='pb-[15%]'>
                 {featuredTvCardContainerData.map((item, id_number) => {
                 return <HomeCardContainer key={id_number} path={item.tv_path} title={item.tv_title} result={fetchResult[id_number]} id_name={item.id_name} urlPath='tv' page={1} />
                 })}
-            </>
+            </section>
+
+            <Footer />
         </main>
     )
 }
