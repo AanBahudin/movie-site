@@ -34,7 +34,7 @@ export default function Home({trendingMovie, trendingTv}) {
           <title>Movie API - Search Every Movie & TV Shows</title>
         </Head>
 
-        <section className='flex font-roboto uppercase text-xl text-[#F4F4F5] w-[50%] pt-[10%] mx-auto justify-around items-center'>
+        {/* <section className='flex font-roboto uppercase text-xl text-[#F4F4F5] w-[50%] pt-[10%] mx-auto justify-around items-center'>
           <Link href='/media/tv'><a>Tv Show</a></Link> <Link href='/media/movie'><a>Movies</a></Link>
         </section>
 
@@ -42,7 +42,7 @@ export default function Home({trendingMovie, trendingTv}) {
           {HomeCardContainerData.map((item, item_id) => {
               return <HomeCardContainer key={item_id} path={item.path} id_name={item.id_name} title={item.title} result={results[item_id]} urlPath={searchPath[item_id]} page={1} />
           })}
-        </>
+        </> */}
         
         <Footer />
       </main>
