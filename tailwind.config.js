@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'roboto': ['Roboto Mono', 'monospace']
+        'roboto': ['Roboto Mono', 'monospace'],
+        'montserrat': ['Montserrat', 'sans-serif']
       },
       colors: {
         'gunmetal': '#333745',
