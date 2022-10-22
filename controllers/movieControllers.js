@@ -34,6 +34,24 @@ const getSingleMovies = async(req, res) => {
     }
 }
 
+const getCollection = async(req, res) => {
+    const {id} = req.params
+
+    if(typeof id === 'undefined'){
+        res.status(StatusCodes.BAD_REQUEST).json({success: false, msg: "This movie doesn't have any collection"})
+    }
+
+    try {
+        const response = await axios.get(`${baseURL}/collection/${id}?api_key=${process.env.API_KEY}`)
+        if (!response.data) {
+            res.status(StatusCodes.BAD_REQUEST).json({success: false, msg: 'Something is wrong, Try again later!'})
+        }
+        res.status(StatusCodes.OK).json(response.data)
+    } catch (error) {
+        res.status(StatusCodes.NOT_FOUND).json({success: false, msg: 'Try again later!'})
+    }
+}
+
 const searchAll = async(req, res) => {
     const {title, page} = req.query
     try {
@@ -48,5 +66,6 @@ module.exports = {
     getSingleMovies,
     searchAll,
     getFeatureMovie,
-    getFeatureTv
+    getFeatureTv,
+    getCollection   
 }
