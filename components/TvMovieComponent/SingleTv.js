@@ -1,5 +1,6 @@
-import {Production_Company, Details} from '../../components'
 import moment from 'moment'
+import {Production_Company, Details} from '../../components'
+import { handleImage } from '../../utils/helper'
 
 const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, genres, languages, last_air_date, last_episode_to_air, name, next_episode_to_air, number_of_episodes, number_of_seasons, origin_country, overview, popularity, poster_path, production_companies, seasons, status, tagline, type, vote_average, vote_count, in_production, id}) => {
 
@@ -8,7 +9,7 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
 
   return (
     <main className="py-[7%] w-[90%] mx-auto">
-      <img className='w-9/12 mx-auto rounded' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} />
+      <img className='w-9/12 mx-auto rounded' src={handleImage(backdrop_path)} />
 
 
       <Details overview={overview} genres={genres} data={data} tagline={tagline} poster={poster_path} title={name} />
@@ -16,7 +17,7 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
       <section className="w-9/12 mx-auto py-[5%]">
         <div className='flex py-[2%] justify-start flex-wrap items-start gap-x-14 w-full'>
           {seasons.map(item => {
-              return <article key={item.id} className="w-32"> <img className='w-full my-auto rounded' alt='Failed to Load'  src={`https://image.tmdb.org/t/p/original${item.poster_path}`} />
+              return <article key={item.id} className="w-32"> <img className='w-full my-auto rounded' alt='Failed to Load'  src={handleImage(item.poster_path)} />
               <h1 className="text-center font-roboto truncate text-silver italic pt-5">{item.name}</h1>
               </article>
           })}
@@ -25,7 +26,7 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
 
       <section className='w-9/12 mx-auto'>
             <article className='grid grid-cols-2 gap-x-10'>
-              <img className="my-auto" src={`https://image.tmdb.org/t/p/original${last_episode_to_air.still_path}`} />
+              <img className="my-auto" src={handleImage(last_episode_to_air.still_path)} />
 
               <div className='font-roboto flex flex-col items-center justify-center'>
                 {next_episode_to_air ? <h1 className='text-crayola'>Next episode {moment(next_episode_to_air.air_date, "YYYYMMDD").fromNow()}</h1> : null}
@@ -46,7 +47,7 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
           {created_by.map(item => {
             return (
               <article className='w-[12%] mx-auto py-[4%]' key={item.id}>
-                <img className="w-full rounded py-4" src={`https://image.tmdb.org/t/p/original${item.profile_path}`} />
+                <img className="w-full rounded py-4" src={handleImage(item.profile_path)} />
                 <h1 className='text-center'>{item.name}</h1>
               </article>
             )

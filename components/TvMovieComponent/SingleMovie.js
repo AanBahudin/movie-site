@@ -1,6 +1,7 @@
+import { handleImage } from '../../utils/helper';
 import {Belongs_To_Collection, Production_Company, Details} from '../../components'
 
-const SingleMovie = ({poster_path, backdrop_path, title, original_name, tagline, overview, genres=[], release_date, imdb_id, originial_language, belongs_to_collection, id, popularity, production_companies=[], revenue, runtime, vote_average, vote_count, status, budget}) => {
+const SingleMovie = ({poster_path, backdrop_path, title, original_name, tagline, overview, genres=[], release_date, belongs_to_collection, id, popularity, production_companies=[], revenue, runtime, vote_average, vote_count, status, budget}) => {
 
     let dollars = Intl.NumberFormat("en-US", {style: "currency",currency: "USD",});
     const minute = runtime % 60;
@@ -13,7 +14,7 @@ const SingleMovie = ({poster_path, backdrop_path, title, original_name, tagline,
     <>
     <main className='py-[7%] w-[90%] mx-auto'>
 
-        <img className='w-9/12 mx-auto rounded' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} />
+        <img className='w-9/12 mx-auto rounded' src={handleImage(backdrop_path)} />
         <Details overview={overview} poster={poster_path} title={title || original_name} tagline={tagline || '-'} genres={genres} data={data} />
 
         {typeof belongs_to_collection === 'object' ? <Belongs_To_Collection {...belongs_to_collection} /> : null} 

@@ -6,6 +6,7 @@ import { useUiContext } from '../context/ui_context'
 import Link from 'next/link'
 
 export const getServerSideProps = async() => {
+  
   const baseURL = 'http://localhost:3001/api/v1/movies'
 
   const trendingMovie = await axios.get(`${baseURL}/featured/movie/trending/1`)

@@ -1,10 +1,10 @@
-
+import { handleImage } from "../../utils/helper"
 
 const Details = ({overview, genres, data, title, poster, tagline}) => {
   return (
     <section className='grid grid-cols-2 py-[7%] w-9/12 mx-auto'>
         <div className='flex justify-center items-center flex-col font-roboto'>
-                <img className='w-72 pb-10 mx-auto' src={`https://image.tmdb.org/t/p/w500${poster}`} />
+                <img className='w-72 pb-10 mx-auto' src={handleImage(poster)} />
                 <h1 className='text-2xl text-cultured'>{title}</h1>
                 <p className='italic text-center py-5 text-silver'>" {tagline || '-'} "</p>
         </div>

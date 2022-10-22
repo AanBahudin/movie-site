@@ -1,6 +1,7 @@
 import {Navbar, Sidebar, Footer, TvMovieCards} from '../../../components'
 import { useUiContext } from '../../../context/ui_context';
 import axios from 'axios'
+import { pageHandler } from '../../../utils/helper';
 import Link from 'next/link';
 import {FiArrowLeftCircle, FiArrowRightCircle} from 'react-icons/fi'
 
@@ -26,8 +27,6 @@ const MovieFeatured = ({data, currentPage, currentType}) => {
         return <h1>Loading ....</h1>
     }
     const {openSidebar} = useUiContext()
-    const nextPage = String(Number(currentPage) + 1)
-    const prevPage = String(Number(currentPage) - 1)
 
     return (
         <main className='h-fit min-h-[100vh] relative'>
@@ -39,8 +38,8 @@ const MovieFeatured = ({data, currentPage, currentType}) => {
             </section>
 
             <section className='flex gap-x-10 w-[90%] mx-auto justify-center items-center pt-[3%] pb-[15%]'>
-                {Number(currentPage) > 1 ? <Link href={`/media/movie/${currentType}/${prevPage}`}><FiArrowLeftCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
-                <Link href={`/media/movie/${currentType}/${nextPage}`}><FiArrowRightCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link>
+                {Number(currentPage) > 1 ? <Link href={`/media/movie/${currentType}/${pageHandler('prev', currentPage)}`}><FiArrowLeftCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link> : null}
+                <Link href={`/media/movie/${currentType}/${pageHandler('next', currentPage)}`}><FiArrowRightCircle className='stroke-silver hover:stroke-crayola duration-200' size={40} /></Link>
             </section>
 
             <Footer />
