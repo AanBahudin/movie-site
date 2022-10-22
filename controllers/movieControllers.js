@@ -10,17 +10,17 @@ const getFeatureMovie = async(req, res) => {
         const response = await axios.get(`${baseURL}/${url}api_key=${process.env.API_KEY}&page=${page}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
-        console.log(error);
+        res.status(StatusCodes.NOT_FOUND).json({success: false, msg: 'cannot perform this request, try again later!'})
     }
 }
 const getFeatureTv = async(req, res) => {
     const {feature, page} = req.params
 
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/tv/${feature}?api_key=${process.env.API_KEY}&page=${page}`)
+        const response = await axios.get(`${baseURL}/tv/${feature}?api_key=${process.env.API_KEY}&page=${page}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
-        console.log(error);
+        res.status(StatusCodes.NOT_FOUND).json({success: false, msg: 'cannot perform this request, try again later!'})
     }
 }
 
@@ -36,12 +36,11 @@ const getSingleMovies = async(req, res) => {
 
 const searchAll = async(req, res) => {
     const {title, page} = req.query
-    console.log(title, page);
     try {
         const response = await axios.get(`${baseURL}/search/multi?api_key=${process.env.API_KEY}&page=${page}&include_adult=false&query=${title}`)
         res.status(StatusCodes.OK).json(response.data)
     } catch (error) {
-        console.log(error);
+        req.status(StatusCodes.BAD_REQUEST).json({success: false, msg: `Cannot find movie / tv series with keyword: ${title}`})
     }
 }
 
