@@ -52,6 +52,18 @@ const getCollection = async(req, res) => {
     }
 }
 
+const getTvSeason = async(req, res) => {
+    const {tv_id, season_number} = req.params
+    console.log(tv_id, season_number);
+
+    try {
+        const response = await axios.get(`${baseURL}/tv/${tv_id}/season/${season_number}?api_key=${process.env.API_KEY}`)
+        res.status(StatusCodes.OK).json(response.data)
+    } catch (error) {
+        res.status(StatusCodes.NOT_FOUND).json({success: false, msg: 'Try again later!'})
+    }
+} 
+
 const searchAll = async(req, res) => {
     const {title, page} = req.query
     try {
@@ -67,5 +79,6 @@ module.exports = {
     searchAll,
     getFeatureMovie,
     getFeatureTv,
-    getCollection   
+    getCollection,
+    getTvSeason   
 }
