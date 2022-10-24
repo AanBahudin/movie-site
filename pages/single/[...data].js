@@ -17,7 +17,7 @@ export const getServerSideProps = async({params}) => {
 
 const SingleById = ({params, singleData}) => {
 
-
+    console.log(singleData);
     const {openSidebar} = useUiContext()
     return (
         <main className='h-fit min-h-[100vh] relative'>

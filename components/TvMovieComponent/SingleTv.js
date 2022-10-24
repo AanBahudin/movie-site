@@ -1,5 +1,6 @@
 import moment from 'moment'
 import {Production_Company, Details} from '../../components'
+import Link from 'next/link'
 import { handleImage } from '../../utils/helper'
 
 const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, genres, languages, last_air_date, last_episode_to_air, name, next_episode_to_air, number_of_episodes, number_of_seasons, origin_country, overview, popularity, poster_path, production_companies, seasons, status, tagline, type, vote_average, vote_count, in_production, id}) => {
@@ -17,9 +18,11 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
       <section className="w-9/12 mx-auto py-[5%]">
         <div className='flex py-[2%] justify-start flex-wrap items-start gap-x-14 w-full'>
           {seasons.map(item => {
-              return <article key={item.id} className="w-32"> <img className='w-full my-auto rounded' alt='Failed to Load'  src={handleImage(item.poster_path)} />
-              <h1 className="text-center font-roboto truncate text-silver italic pt-5">{item.name}</h1>
-              </article>
+              return (
+                <Link key={item.season_number} href={`/season/${id}/${item.season_number}`}><article key={item.id} className="w-32"> <img className='w-full my-auto rounded' alt='Failed to Load'  src={handleImage(item.poster_path)} />
+                    <h1 className="text-center font-roboto truncate text-silver italic pt-5">{item.name}</h1>
+                  </article></Link>
+              )
           })}
         </div>
       </section>
