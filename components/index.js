@@ -7,6 +7,7 @@ import HomeCardContainer from './Home/HomeCardContainer'
 import Loading from './Loading'
 import TvMovieCards from './TvMovieCards'
 import TvMovieCard from './TvMovieCard'
+import NoResult from './NoResult'
 
 import SearchCard from './SearchCard'
 import SearchCards from './SearchCards'
@@ -22,6 +23,7 @@ export {
     Navbar,
     Loading,
     Sidebar,
+    NoResult,
     Card,
     Cards,
     HomeCardContainer,

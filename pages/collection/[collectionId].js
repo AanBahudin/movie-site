@@ -2,6 +2,7 @@ import {Navbar, Footer, Sidebar} from '../../components'
 import { useUiContext } from '../../context/ui_context'
 import axios from 'axios'
 import {handleImage} from '../../utils/helper'
+import Link from 'next/link'
 import moment from 'moment'
 
 export const getServerSideProps = async({params}) => {
@@ -34,13 +35,13 @@ const CollectionId = ({data}) => {
 
             <section className='w-9/12 mx-auto mt-[6%] flex flex-col gap-y-10 pb-[20%]'>
                 {parts.map(item => {
-                    const {original_title, poster_path, overview, popularity, genre_ids, release_date, vote_count, vote_average, id} = item
+                    const {original_title, poster_path, overview, popularity, release_date, vote_count, vote_average, id} = item
                     return (
                         <article key={id} className='flex justify-around'>
                             <img className='w-52 rounded' src={handleImage(poster_path)} />
 
                             <div className='p-5'>
-                                <h1 className='text-2xl font-semibold text-crayola py-5'>{original_title}</h1>
+                                <Link href={`/single/movie/${id}`}><h1 className='text-2xl cursor-default font-semibold text-crayola py-5'>{original_title}</h1></Link>
                                 <h4>{overview}</h4>
 
                                 <article className='text-silver italic pt-10 font-roboto'>

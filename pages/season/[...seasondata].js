@@ -1,7 +1,7 @@
-import {Navbar, Footer, Sidebar} from '../../components'
+import {Navbar, Footer, Sidebar, NoResult} from '../../components'
 import { useUiContext } from '../../context/ui_context'
 import axios from 'axios'
-import {handleImage} from '../../utils/helper'
+import {handleImage, handleTime} from '../../utils/helper'
 
 export const getServerSideProps = async({params}) => {
     const {seasondata} = params
@@ -26,16 +26,26 @@ const SeasonInformation = ({data}) => {
             {openSidebar ? <Sidebar /> : null}
             <Navbar />
 
+            {episodes.length === 0 ? (
+                <NoResult message='No Episodes Has Been Posted' />
+            ) : (
+                <section className='w-9/12 mx-auto py-[10%] gap-y-10 flex flex-col'>
+                    {episodes.map(item => {
+                        return (
+                            <article className='flex w-full justify-between'>
+                                <img className='w-2/5 rounded' src={handleImage(item.still_path)} alt={item.name} />
 
-            <section>
-                {episodes.map(item => {
-                    return (
-                        <article>
-                            <img className='w-52 rounded' src={handleImage(item.still_path)} alt={item.name} />
-                        </article>
-                    )
-                })}
-            </section>
+                                <div className='px-7 text-sm'>
+                                    <h1 className='text-2xl text-crayola'>Episode {item.episode_number} - {item.name}</h1>
+                                    <p>{item.runtime} minutes | {handleTime(item.air_date)}</p>
+                                    <p className='text-silver pt-4'>{item.overview}</p>
+                                </div>
+                            </article>
+                        )
+                    })}
+                </section>
+            )}
+
 
             <Footer />
         </main>

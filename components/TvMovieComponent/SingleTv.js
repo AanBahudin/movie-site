@@ -1,11 +1,10 @@
-import moment from 'moment'
 import {Production_Company, Details} from '../../components'
 import Link from 'next/link'
-import { handleImage } from '../../utils/helper'
+import { handleImage, handleTime } from '../../utils/helper'
 
 const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, genres, languages, last_air_date, last_episode_to_air, name, next_episode_to_air, number_of_episodes, number_of_seasons, origin_country, overview, popularity, poster_path, production_companies, seasons, status, tagline, type, vote_average, vote_count, in_production, id}) => {
 
-  const data = {in_production, first_air_date: moment(first_air_date, "YYYYMMDD").fromNow(), last_air_date:moment(last_air_date, "YYYYMMDD").fromNow(), origin_country, id, origin_country, episode_run_time, type, status, vote_average: Number(vote_average).toFixed(1), number_of_episodes, popularity, vote_count: Number(vote_count).toFixed(), number_of_seasons, languages}
+  const data = {in_production, first_air_date: handleTime(first_air_date), last_air_date: handleTime(last_air_date), origin_country, id, origin_country, episode_run_time, type, status, vote_average: Number(vote_average).toFixed(1), number_of_episodes, popularity, vote_count: Number(vote_count).toFixed(), number_of_seasons, languages}
   
 
   return (
@@ -32,7 +31,7 @@ const SingleTv = ({backdrop_path, created_by, episode_run_time, first_air_date, 
               <img className="my-auto" src={handleImage(last_episode_to_air.still_path)} />
 
               <div className='font-roboto flex flex-col items-center justify-center'>
-                {next_episode_to_air ? <h1 className='text-crayola'>Next episode {moment(next_episode_to_air.air_date, "YYYYMMDD").fromNow()}</h1> : null}
+                {next_episode_to_air ? <h1 className='text-crayola'>Next episode {handleTime(next_episode_to_air.air_date)}</h1> : null}
 
                 <h1 className='text-center text-3xl'>Last Episode Airing</h1>
                 
