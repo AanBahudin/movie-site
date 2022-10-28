@@ -3,7 +3,8 @@ import { HomeCardContainerData } from '../utils/helper'
 import Head from 'next/head'
 import axios from 'axios'
 import { useUiContext } from '../context/ui_context'
-import Link from 'next/link'
+import { useMovieContext } from '../context/movie_context'
+import {AiOutlineClose, AiOutlineSearch} from 'react-icons/ai'
 
 export const getServerSideProps = async() => {
   
@@ -21,7 +22,8 @@ export const getServerSideProps = async() => {
 
 export default function Home({trendingMovie, trendingTv}) {
 
-  const {openSidebar} = useUiContext()
+  const {openSidebar, handleSearchValue, searchValue} = useUiContext()
+  const {findData} = useMovieContext()
 
   const results = [trendingMovie, trendingTv]
   const searchPath = ['movie', 'tv']
@@ -35,9 +37,15 @@ export default function Home({trendingMovie, trendingTv}) {
           <title>Movie API - Search Every Movie & TV Shows</title>
         </Head>
 
-        <section className='flex font-roboto uppercase text-xl text-[#F4F4F5] w-[50%] pt-[10%] mx-auto justify-around items-center'>
-          <Link href='/media/tv'><a>Tv Show</a></Link> <Link href='/media/movie'><a>Movies</a></Link>
-        </section>
+        <section className='pt-[10%] w-full'>
+          <section className="w-[50%] mx-auto flex bg-transparent border-white border-[0.1px] rounded">
+              <input onKeyPress={e => {
+                {e.key === 'Enter' ? findData() : null}
+              }} className="px-4 py-4 w-full font-montserrat tracking-widest rounded placeholder:text-white outline-none text-[0.8rem] bg-transparent" type="text" placeholder="search movie .." value={searchValue} onChange={e => handleSearchValue(e.target.value)} />
+              <span onClick={() => handleSearchValue("")} className='my-auto px-3'><AiOutlineClose /></span>
+              {searchValue.length <= 3 ? null : <span className='my-auto px-3 border-l-[0.2px]'> <AiOutlineSearch onClick={() => findData()} /> </span>}
+          </section>
+          </section>
 
         <section className='pb-[10%]'>
           {HomeCardContainerData.map((item, item_id) => {
